@@ -41,6 +41,10 @@ class LiipMonitorExtension extends Extension
             }
         }
 
+        if ($config['default_group']) {
+            $container->setParameter(sprintf('%s.default_group', $this->getAlias()), $config['default_group']);
+        }
+
         if (empty($config['checks'])) {
             return;
         }

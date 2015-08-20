@@ -28,6 +28,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->booleanNode('enable_controller')->defaultFalse()->end()
+                ->scalarNode('default_group')->defaultNull()->end()
                 ->scalarNode('view_template')->defaultNull()->end()
                 ->arrayNode('mailer')
                     ->canBeEnabled()
