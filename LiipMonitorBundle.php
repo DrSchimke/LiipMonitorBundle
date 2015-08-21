@@ -4,6 +4,7 @@ namespace Liip\MonitorBundle;
 
 use Liip\MonitorBundle\DependencyInjection\Compiler\AdditionalReporterCompilerPass;
 use Liip\MonitorBundle\DependencyInjection\Compiler\CheckCollectionTagCompilerPass;
+use Liip\MonitorBundle\DependencyInjection\Compiler\GroupsCompilerPass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Liip\MonitorBundle\DependencyInjection\Compiler\CheckTagCompilerPass;
@@ -12,6 +13,7 @@ class LiipMonitorBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
+        $container->addCompilerPass(new GroupsCompilerPass());
         $container->addCompilerPass(new CheckTagCompilerPass());
         $container->addCompilerPass(new CheckCollectionTagCompilerPass());
         $container->addCompilerPass(new AdditionalReporterCompilerPass());
